@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+// JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+
+// JSON parser for handling JSON responses
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+
+// AssertJ for better assertions
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+// Allure
+    implementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.29.0'
+    testImplementation 'org.aspectj:aspectjweaver:1.9.22.1'
+
+//Selenide
+    implementation group: 'com.codeborne', name: 'selenide', version: '7.5.1'
+
+}
+
+configurations {
+    agentConfig {
+        canBeResolved = true
+        extendsFrom testImplementation
+    }
+}
+
+test {
+    useJUnitPlatform()
+    jvmArgs "-javaagent:${configurations.agentConfig.find { it.name.contains('aspectjweaver') }}"
+}
