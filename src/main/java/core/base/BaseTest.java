@@ -1,12 +1,12 @@
 package core.base;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.module.Configuration;
 import java.util.Properties;
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
