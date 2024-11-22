@@ -2,9 +2,8 @@ package core.base;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.module.Configuration;
-import java.util.Properties;
 import com.codeborne.selenide.Configuration;
+import java.util.Properties;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -18,7 +17,7 @@ public class BaseTest {
     public void setup() throws IOException {
         baseUrl = determineBaseUrl();
         Configuration.browser = "chrome";
-        Configuration.browserSize = "1920х1080";
+        Configuration.browserSize = "1920x1080";
     }
 
     private static String determineBaseUrl() throws IOException {
